@@ -38,7 +38,7 @@ def main(
 
 if __name__ == '__main__':
     IS_VIDEO = True
-    youtube_link = 'https://www.youtube.com/watch?v=EOLafh8DPFM&t'  # если есть линк в ютуб видео оно юзается, иначе
+    youtube_link = 'link to youtube video'  # если есть линк в ютуб видео оно юзается, иначе
     path_to_pre_downloaded_video = 'brad_pitt_interview.mp4'  # предустановленное видео
 
     main(IS_VIDEO, youtube_link=youtube_link, path_to_pre_downloaded_video=path_to_pre_downloaded_video)
