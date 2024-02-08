@@ -1,6 +1,9 @@
+import json
 import os
 import time
+from typing import Optional, Any
 
+from config import CACHE_FILE_PATH
 from utils.types import PathType
 
 
@@ -33,3 +36,33 @@ def convert_array_to_text(img_array, symbol='\u2592') -> str:
 
 def is_file_exists(path: PathType) -> bool:
     return os.path.exists(path)
+
+
+def add_to_cache(key: str, value: str):
+    data = {}
+
+    if is_file_exists(CACHE_FILE_PATH):
+        with open(CACHE_FILE_PATH, encoding='utf-8') as f:
+            try:
+                data = json.load(f)
+            except json.decoder.JSONDecodeError:
+                pass
+
+    data[key] = str(value)
+
+    with open(CACHE_FILE_PATH, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+
+def get_in_cache(key: str) -> Optional[Any]:
+    if is_file_exists(CACHE_FILE_PATH):
+        with open(CACHE_FILE_PATH, encoding='utf-8') as f:
+            try:
+                data = json.load(f)
+            except json.decoder.JSONDecodeError:
+                return None
+
+            if key in data:
+                return data[key]
+
+    return None

@@ -5,7 +5,15 @@ from pytube import YouTube
 
 from config import VIDEO_DIR, FRAME_RATE
 from utils.audio import play_audio, stop_audio, unpause_audio, pause_audio
-from utils.common import write_to_terminal, clear_terminal, pause, convert_array_to_text, is_file_exists
+from utils.common import (
+    write_to_terminal,
+    clear_terminal,
+    pause,
+    convert_array_to_text,
+    is_file_exists,
+    add_to_cache,
+    get_in_cache,
+)
 from utils.types import PathType
 
 
@@ -57,6 +65,9 @@ def print_video_to_terminal(
 
 
 def download_video_from_youtube(link: str, file_extension: str = '.mp4') -> PathType:
+    if file_path := get_in_cache(link):
+        return file_path
+
     yt = YouTube(link)
     video = yt.streams.get_lowest_resolution()
 
@@ -67,5 +78,7 @@ def download_video_from_youtube(link: str, file_extension: str = '.mp4') -> Path
         pass
     else:
         video.download(output_path=VIDEO_DIR, filename=file_name)
+
+    add_to_cache(link, file_path)
 
     return file_path

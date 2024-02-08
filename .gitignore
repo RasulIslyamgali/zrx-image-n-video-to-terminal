@@ -5,3 +5,4 @@ __pycache__/
 media/audio
 media/videos
 media/img
+cache.json
