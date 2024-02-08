@@ -2,9 +2,9 @@
 
 ### [install ffmpeg ](https://phoenixnap.com/kb/install-ffmpeg-ubuntu) for audio extracting process
 
-### set youtube link or pre downloaded video link into main.py
-
 ### run python main.py
+
+### set YouTube link or press enter and set pre downloaded video name
 
 ### use ctrl+c for stopping video
 
