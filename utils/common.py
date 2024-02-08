@@ -1,6 +1,8 @@
 import os
 import time
 
+from utils.types import PathType
+
 
 def save_to_file(image, file_name: str = 'media/test.png') -> None:
     with open(file_name, 'wb') as f:
@@ -27,3 +29,7 @@ def convert_array_to_text(img_array, symbol='\u2592') -> str:
         text_img += line + '\n'
 
     return text_img
+
+
+def is_file_exists(path: PathType) -> bool:
+    return os.path.exists(path)
