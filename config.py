@@ -1,0 +1,8 @@
+MINIMIZED = True
+
+if MINIMIZED:
+    MAX_HEIGHT = 90
+    MAX_WIDTH = 280
+else:
+    MAX_HEIGHT = 109
+    MAX_WIDTH = 320
