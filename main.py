@@ -1,7 +1,7 @@
 import pathlib
 from typing import Optional
 
-from config import MAX_HEIGHT, MAX_WIDTH, VIDEO_DIR, AUDIO_DIR, MEDIA_DIR, PAUSE_BETWEEN_VIDEO_FRAMES
+from config import MAX_HEIGHT, MAX_WIDTH, VIDEO_DIR, AUDIO_DIR, IMG_DIR, PAUSE_BETWEEN_VIDEO_FRAMES
 from utils.audio import save_audio_from_video_to_file
 from utils.image import get_images, print_images_to_terminal
 from utils.video import print_video_to_terminal, download_video_from_youtube
@@ -28,8 +28,7 @@ def main(
         )
     else:
         images_paths = [
-            MEDIA_DIR / 'man_portrait.jpg',
-            MEDIA_DIR / 'sportcar1.png',
+            IMG_DIR / 'car.png',
         ]
 
         images = get_images(images_paths)
