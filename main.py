@@ -8,11 +8,11 @@ from utils.video import print_video_to_terminal, download_video_from_youtube
 
 
 def main(
-        is_video: bool,
+        is_video: bool | int,
         youtube_link: Optional[str] = None,
         path_to_pre_downloaded_video: Optional[str] = None,
 ) -> None:
-    FPS = PAUSE_BETWEEN_VIDEO_FRAMES if is_video else 3
+    FPS = PAUSE_BETWEEN_VIDEO_FRAMES if is_video else 60
 
     if is_video:
         path_to_video = download_video_from_youtube(
@@ -36,10 +36,12 @@ def main(
 
 
 if __name__ == '__main__':
-    IS_VIDEO = True
-    youtube_link = input('set youtube link>\n')  # если есть линк в ютуб видео оно юзается, иначе
+    is_video = int(input('This is video?: answer 1 if is else 0'))
+    youtube_link = ''
     pre_downloaded_video_name = ''
-    if not youtube_link.strip():
-        pre_downloaded_video_name = input('set pre download video name>\n')  # предустановленное видео
-    assert youtube_link.strip() or pre_downloaded_video_name.strip(), 'set either youtube link or video name'
-    main(IS_VIDEO, youtube_link=youtube_link, path_to_pre_downloaded_video=pre_downloaded_video_name)
+    if is_video:
+        youtube_link = input('set youtube link or just press enter for skip>\n')
+        if not youtube_link.strip():
+            pre_downloaded_video_name = input('set pre download video name>\n')
+        assert youtube_link.strip() or pre_downloaded_video_name.strip(), 'set either youtube link or video name'
+    main(is_video, youtube_link=youtube_link, path_to_pre_downloaded_video=pre_downloaded_video_name)

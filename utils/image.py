@@ -11,9 +11,7 @@ def get_image(path: PathType) -> Image:
 
 
 def resize_image(img: Image) -> Image:
-    height_divider = img.height // MAX_HEIGHT
-    width_divider = img.width // MAX_WIDTH
-    smaller_img = img.resize((img.width // width_divider, img.height // height_divider))
+    smaller_img = img.resize((MAX_WIDTH, MAX_HEIGHT))
     smaller_img_black_and_white = smaller_img.convert('1')
 
     return smaller_img_black_and_white

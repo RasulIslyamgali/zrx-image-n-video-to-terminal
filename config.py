@@ -1,17 +1,13 @@
+import os
 import pathlib
 
-WITH_MONITOR = False
 
-MAX_HEIGHT = 90
-MAX_WIDTH = 280
+def get_terminal_size():
+    rows, columns = os.popen('stty size', 'r').read().split()
+    return int(rows), int(columns)
 
-if WITH_MONITOR:  # font size 5
-    pass
-else:
-    MAX_HEIGHT *= 2.6
-    MAX_HEIGHT = int(MAX_HEIGHT)
-    MAX_WIDTH *= 4.5
-    MAX_WIDTH = int(MAX_WIDTH)
+
+MAX_HEIGHT, MAX_WIDTH = get_terminal_size()
 
 BASE_DIR = pathlib.Path(__file__).parent
 MEDIA_DIR = BASE_DIR / 'media'
