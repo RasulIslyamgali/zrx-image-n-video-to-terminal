@@ -1,3 +1,7 @@
+<img src="redmi_media/img.png" width=500>
+
+<img src="redmi_media/demo.gif" width=500>
+
 ## How to use?
 
 ### [install ffmpeg ](https://phoenixnap.com/kb/install-ffmpeg-ubuntu) for audio extracting process
