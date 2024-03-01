@@ -8,6 +8,7 @@ def get_terminal_size():
 
 
 MAX_HEIGHT, MAX_WIDTH = get_terminal_size()
+MAX_HEIGHT = int(MAX_HEIGHT * 0.95)
 
 BASE_DIR = pathlib.Path(__file__).parent
 MEDIA_DIR = BASE_DIR / 'media'
