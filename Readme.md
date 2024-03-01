@@ -2,6 +2,8 @@
 
 <img src="redmi_media/demo.gif" width=500>
 
+#### video [from](https://www.youtube.com/watch?v=EOLafh8DPFM&t) 
+
 ## How to use?
 
 ### [install ffmpeg ](https://phoenixnap.com/kb/install-ffmpeg-ubuntu) for audio extracting process
