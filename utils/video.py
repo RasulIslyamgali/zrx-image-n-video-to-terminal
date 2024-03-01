@@ -27,7 +27,7 @@ def get_frames_from_video(video_path: PathType):
             cap.release()
             return
         frame_count += 1
-        if frame_count % FRAME_RATE == 0:  # Check if it's the third frame
+        if frame_count % FRAME_RATE == 0:
             frame_count = 0
             yield frame
 
@@ -54,8 +54,8 @@ def get_frames_from_camera():
             return
 
         frame_count += 1
-        if frame_count % FRAME_RATE == 0:  # Check if it's the third frame
-            # frame_count = 0
+        if frame_count % FRAME_RATE == 0:
+            frame_count = 0
             frame = cv2.flip(frame, 1)
             yield frame
 
