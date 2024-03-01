@@ -59,9 +59,7 @@ def print_video_to_terminal(
             clear_terminal()
         except KeyboardInterrupt:
             pause_audio()
-            answer = input('Video paused Press enter to resume')
-            if answer.lower() == 'n':
-                sys.exit(0)
+            input('Video paused press enter to resume or Ctrl+C for exit')
             unpause_audio()
     stop_audio()
 
