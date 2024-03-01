@@ -1,3 +1,5 @@
+from typing import Optional
+
 import ffmpeg
 from pygame import mixer
 
@@ -15,7 +17,9 @@ def save_audio_from_video_to_file(path_to_video: PathType, path_to_save: PathTyp
     input_file.output(filename=path_to_save, acodec=acodec).run()
 
 
-def play_audio(path: PathType) -> None:
+def play_audio(path: Optional[PathType]) -> None:
+    if path is None:
+        return
     mixer.music.load(path)
     mixer.music.play()
 

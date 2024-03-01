@@ -11,6 +11,10 @@
 ### show local image
 `$ python main.py --local_image_path=/home/rasul/Personal/py/zrx/media/img/car.png`
 
+### show video from camera
+`$ python main.py --use_camera=1`
+
+
 ## Tips
 
 > For high resolution on terminal temporary change terminal font size to 1

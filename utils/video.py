@@ -1,4 +1,4 @@
-import sys
+from typing import Generator, Optional
 
 import cv2
 from pytube import YouTube
@@ -28,20 +28,49 @@ def get_frames_from_video(video_path: PathType):
             return
         frame_count += 1
         if frame_count % FRAME_RATE == 0:  # Check if it's the third frame
+            frame_count = 0
+            yield frame
+
+
+def get_frames_from_camera():
+    # Create a VideoCapture object to access the camera (0 indicates the default camera)
+    cap = cv2.VideoCapture(0)
+    frame_count = 0
+
+    # Check if the camera is opened successfully
+    if not cap.isOpened():
+        print("Error: Failed to open camera. Goodbye!")
+        return
+
+    # Loop to capture frames from the camera
+    while True:
+        # Capture frame-by-frame
+        ret, frame = cap.read()
+
+        # Check if the frame is retrieved successfully
+        if not ret:
+            cap.release()
+            print("Error: Failed to retrieve frame. Goodbye!")
+            return
+
+        frame_count += 1
+        if frame_count % FRAME_RATE == 0:  # Check if it's the third frame
+            # frame_count = 0
+            frame = cv2.flip(frame, 1)
             yield frame
 
 
 def print_video_to_terminal(
-        video_path: str,
         height: int,
         width: int,
-        path_to_audio_file: PathType,
+        path_to_audio_file: Optional[PathType],
+        video_frames_generator: Generator,
         fps: float = 0.058,
 ) -> None:
     clear_terminal()
 
     is_first_loop = True
-    for frame in get_frames_from_video(video_path):
+    for frame in video_frames_generator:
         try:
             resized_frame = cv2.resize(frame, (width, height))
             gray_frame = cv2.cvtColor(resized_frame, cv2.COLOR_BGR2GRAY)
