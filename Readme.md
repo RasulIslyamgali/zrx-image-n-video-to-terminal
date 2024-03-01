@@ -36,7 +36,3 @@
     [199, 213, 216, 255] ] - row
 ]
 ```
-
-## Links
-
-- handle audio stream https://codingprojects.ru/textbook/64/lesson/534
