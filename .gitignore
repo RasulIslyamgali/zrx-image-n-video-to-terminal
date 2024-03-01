@@ -4,5 +4,6 @@ __pycache__/
 .env
 media/audio
 media/video
+media/videos
 media/img
 cache.json
