@@ -2,8 +2,8 @@ import numpy as np
 from PIL import Image
 
 from config import MAX_HEIGHT, MAX_WIDTH
+from utils.common import write_to_terminal, clear_terminal, convert_array_to_text
 from utils.types import PathType
-from utils.common import write_to_terminal, clear_terminal, pause, convert_array_to_text
 
 
 def get_image(path: PathType) -> Image:
@@ -26,15 +26,20 @@ def get_images(paths: list[PathType]) -> list[Image]:
     return images
 
 
-def print_images_to_terminal(images: list[Image], fps: float = 3) -> None:
-    for img in images:
-        resized_img = resize_image(img)
-        img_array = convert_img_to_array(resized_img)
-        text = convert_array_to_text(img_array)
-        write_to_terminal(text)
+def print_images_to_terminal(images: list[Image], ) -> None:
+    clear_terminal()
 
-        pause(fps)
-        clear_terminal()
+    for img in images:
+        print_img_to_terminal(img)
+
+
+def print_img_to_terminal(img: Image) -> None:
+    resized_img = resize_image(img)
+    img_array = convert_img_to_array(resized_img)
+    text = convert_array_to_text(img_array)
+
+    write_to_terminal(text)
+    input('Press Ctrl+C for exit')
 
 
 def convert_img_to_array(image):

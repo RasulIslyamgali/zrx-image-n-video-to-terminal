@@ -2,18 +2,19 @@
 
 ### [install ffmpeg ](https://phoenixnap.com/kb/install-ffmpeg-ubuntu) for audio extracting process
 
-### run python main.py
+### show YouTube video
+`$ python main.py --youtube_link="https://www.youtube.com/watch?v=EOLafh8DPFM&t"`
 
-### set YouTube link or press enter and set pre downloaded video name
+### show local video
+`$ python main.py --local_video_path=/home/rasul/Personal/py/zrx/media/video/cherimoya.mp4`
 
-### use ctrl+c for stopping video
-
-### press enter to resume or type 'n' for exiting program
+### show local image
+`$ python main.py --local_image_path=/home/rasul/Personal/py/zrx/media/img/car.png`
 
 ## Tips
 
-> For high resolution on terminal set possible min font size. For this purpose create different profile
-> on your terminal profiles
+> For high resolution on terminal temporary change terminal font size to 1
+
 
 ## INFO
 

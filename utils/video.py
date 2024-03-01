@@ -38,6 +38,8 @@ def print_video_to_terminal(
         path_to_audio_file: PathType,
         fps: float = 0.058,
 ) -> None:
+    clear_terminal()
+
     is_first_loop = True
     for frame in get_frames_from_video(video_path):
         try:
