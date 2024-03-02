@@ -20,7 +20,7 @@
 ### show video from camera
 `$ python main.py --use_camera=1`
 
-## Run from docker
+### or run using docker(demo)
 `docker run --device /dev/snd -e max_height=$(tput cols) -e max_width=$(tput lines) -e youtube_link="https://www.youtube.com/watch?v=EOLafh8DPFM&t" zrx`
 
 ## Tips
