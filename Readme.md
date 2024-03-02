@@ -15,7 +15,7 @@
 `$ python main.py --local_video_path=/home/rasul/Personal/py/zrx/media/video/cherimoya.mp4`
 
 ### show local image
-`$ python main.py --local_image_path=/home/rasul/Personal/py/zrx/media/img/car.png`
+`$ python main.py --local_image_path=/home/rasul/Personal/py/zrx/media/img/car.jpg`
 
 ### show video from camera
 `$ python main.py --use_camera=1`
