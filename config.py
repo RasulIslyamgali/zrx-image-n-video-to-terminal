@@ -7,8 +7,13 @@ def get_terminal_size():
     return int(rows), int(columns)
 
 
-MAX_HEIGHT, MAX_WIDTH = get_terminal_size()
-MAX_HEIGHT = int(MAX_HEIGHT * 0.95)
+if os.path.exists('/.dockerenv'):
+    MAX_HEIGHT = int(os.getenv('max_height'))
+    MAX_WIDTH = int(os.getenv('max_width'))
+    MAX_WIDTH, MAX_HEIGHT = MAX_HEIGHT, MAX_WIDTH
+else:
+    MAX_HEIGHT, MAX_WIDTH = get_terminal_size()
+    MAX_HEIGHT = int(MAX_HEIGHT * 0.95)
 
 BASE_DIR = pathlib.Path(__file__).parent
 MEDIA_DIR = BASE_DIR / 'media'

@@ -17,7 +17,11 @@ def write_to_terminal(text: str) -> None:
 
 
 def clear_terminal():
-    os.system('clear')
+    # TODO terminal clear does not work
+    if os.path.exists('/.dockerenv'):
+        print("\033[H\033[2J")
+    else:
+        os.system('clear')
 
 
 def pause(seconds: float) -> None:
