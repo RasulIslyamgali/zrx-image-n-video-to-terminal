@@ -78,6 +78,8 @@ def print_video_to_terminal(
             _, resized_frame = cv2.threshold(gray_frame, 127, 255, cv2.THRESH_BINARY)
 
             text = convert_array_to_text(resized_frame)
+
+            clear_terminal()
             write_to_terminal(text)
 
             if is_first_loop:
@@ -85,7 +87,6 @@ def print_video_to_terminal(
                 is_first_loop = False
 
             pause(fps)
-            clear_terminal()
         except KeyboardInterrupt:
             pause_audio()
             input('Video paused press enter to resume or Ctrl+C for exit')
