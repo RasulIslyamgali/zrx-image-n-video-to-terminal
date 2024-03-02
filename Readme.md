@@ -22,6 +22,7 @@
 
 
 ## Tips
+> Stop video using Ctrl+C and resume by pressing Enter. Double Ctrl+C for exit
 
 > For high resolution on terminal temporary change terminal font size to 1
 
