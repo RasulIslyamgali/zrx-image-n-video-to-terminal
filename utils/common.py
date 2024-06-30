@@ -3,8 +3,13 @@ import os
 import time
 from typing import Optional, Any
 
+import colorama
+from colorama import Fore
+
 from config import CACHE_FILE_PATH
 from utils.types import PathType
+
+colorama.init()
 
 
 def save_to_file(image, file_name: str = 'media/test.png') -> None:
@@ -12,8 +17,8 @@ def save_to_file(image, file_name: str = 'media/test.png') -> None:
         image.save(f)
 
 
-def write_to_terminal(text: str) -> None:
-    print(text, end='')
+def write_to_terminal(text: str, colour: Fore = Fore.LIGHTGREEN_EX) -> None:
+    print(colour + text, end='')
 
 
 def clear_terminal():

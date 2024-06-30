@@ -6,6 +6,7 @@ from config import MAX_HEIGHT, MAX_WIDTH, AUDIO_DIR, FPS
 from utils.audio import save_audio_from_video_to_file
 from utils.common import clear_terminal
 from utils.image import get_image, print_img_to_terminal
+from utils.terminal import increase_terminal_font_size, change_terminal_background_color
 from utils.video import (
     print_video_to_terminal,
     download_video_from_youtube,
@@ -23,6 +24,8 @@ def main(
         max_height: int = MAX_HEIGHT,
         max_width: int = MAX_WIDTH,
 ) -> None:
+    change_terminal_background_color()
+
     if is_video:
         if use_camera:
             video_frames_generator = get_frames_from_camera()
@@ -79,3 +82,5 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         clear_terminal()
         print('Goodbye!')
+    finally:
+        increase_terminal_font_size()
