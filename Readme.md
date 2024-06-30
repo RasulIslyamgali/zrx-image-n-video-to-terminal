@@ -6,7 +6,17 @@
 
 ## How to use?
 
-### [install ffmpeg ](https://phoenixnap.com/kb/install-ffmpeg-ubuntu) for audio extracting process
+### Requirements
+1. [install ffmpeg ](https://phoenixnap.com/kb/install-ffmpeg-ubuntu) for audio extracting process 
+2. install xdotool for auto-change terminal font size
+```shell
+sudo apt-get install xdotool
+```
+
+#### Activate virtual environment
+```shell
+source activate_venv.sh
+```
 
 ### show YouTube video
 `$ python main.py --youtube_link="https://www.youtube.com/watch?v=EOLafh8DPFM&t"`

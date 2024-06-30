@@ -2,7 +2,11 @@ import os
 import pathlib
 
 
-def get_terminal_size():
+def get_terminal_size(with_minimizing: bool = True):
+    if with_minimizing:
+        from utils.terminal import minimize_terminal_font_size
+        minimize_terminal_font_size()
+
     rows, columns = os.popen('stty size', 'r').read().split()
     return int(rows), int(columns)
 
