@@ -2,6 +2,7 @@ from typing import Generator, Optional
 
 import cv2
 from colorama import Fore
+from colorama.ansi import AnsiFore
 from pytube import YouTube
 
 from config import VIDEO_DIR, FRAME_RATE
@@ -67,7 +68,7 @@ def print_video_to_terminal(
         path_to_audio_file: Optional[PathType],
         video_frames_generator: Generator,
         fps: float = 0.058,
-        font_colour: Optional[Fore] = Fore.LIGHTGREEN_EX,
+        font_colour: Optional[AnsiFore] = Fore.LIGHTGREEN_EX,
 ) -> None:
     clear_terminal()
 

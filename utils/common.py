@@ -5,6 +5,7 @@ from typing import Optional, Any
 
 import colorama
 from colorama import Fore
+from colorama.ansi import AnsiFore
 
 from config import CACHE_FILE_PATH
 from utils.types import PathType
@@ -17,7 +18,7 @@ def save_to_file(image, file_name: str = 'media/test.png') -> None:
         image.save(f)
 
 
-def write_to_terminal(text: str, colour: Fore = Fore.LIGHTGREEN_EX) -> None:
+def write_to_terminal(text: str, colour: Optional[AnsiFore] = Fore.LIGHTGREEN_EX) -> None:
     print(colour + text, end='')
 
 

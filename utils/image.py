@@ -3,6 +3,7 @@ from typing import Optional
 import numpy as np
 from PIL import Image
 from colorama import Fore
+from colorama.ansi import AnsiFore
 
 from config import MAX_HEIGHT, MAX_WIDTH
 from utils.common import write_to_terminal, clear_terminal, convert_array_to_text
@@ -38,7 +39,7 @@ def print_images_to_terminal(images: list[Image], ) -> None:
 
 def print_img_to_terminal(
         img: Image,
-        font_colour: Optional[Fore] = Fore.LIGHTGREEN_EX,
+        font_colour: Optional[AnsiFore] = Fore.LIGHTGREEN_EX,
 ) -> None:
     resized_img = resize_image(img)
     img_array = convert_img_to_array(resized_img)

@@ -2,7 +2,10 @@
 
 <img src="redmi_media/demo.gif" width=500>
 
-#### video [from](https://www.youtube.com/watch?v=EOLafh8DPFM&t) 
+<img src="redmi_media/zrx_another_image.gif" width=500>
+
+
+### video [from](https://www.youtube.com/watch?v=EOLafh8DPFM&t) 
 
 ## How to use?
 
