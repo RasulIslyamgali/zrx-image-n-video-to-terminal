@@ -2,11 +2,17 @@ import argparse
 import pathlib
 from typing import Optional
 
+from colorama import Fore
+
 from config import MAX_HEIGHT, MAX_WIDTH, AUDIO_DIR, FPS
 from utils.audio import save_audio_from_video_to_file
 from utils.common import clear_terminal
 from utils.image import get_image, print_img_to_terminal
-from utils.terminal import increase_terminal_font_size, change_terminal_background_color
+from utils.terminal import (
+    increase_terminal_font_size,
+    change_terminal_background_color,
+    get_colorama_colour_object,
+)
 from utils.video import (
     print_video_to_terminal,
     download_video_from_youtube,
@@ -23,8 +29,11 @@ def main(
         use_camera: Optional[str] = None,
         max_height: int = MAX_HEIGHT,
         max_width: int = MAX_WIDTH,
+        background_colour: Optional[str] = None,  # colour hex value
+        font_colour: Optional[str] = None,
 ) -> None:
-    change_terminal_background_color()
+    font_colour = get_colorama_colour_object(font_colour)
+    change_terminal_background_color(colour_hex=background_colour)
 
     if is_video:
         if use_camera:
@@ -46,10 +55,11 @@ def main(
             width=max_width,
             fps=FPS,
             path_to_audio_file=path_to_audio_from_video,
+            font_colour=font_colour,
         )
     else:
         image = get_image(local_image_path)
-        print_img_to_terminal(image)
+        print_img_to_terminal(image, font_colour)
 
 
 if __name__ == '__main__':
@@ -58,6 +68,9 @@ if __name__ == '__main__':
     parser.add_argument('--local_video_path', default=None)
     parser.add_argument('--local_image_path', default=None)
     parser.add_argument('--use_camera', default=False)
+    parser.add_argument('--background_colour', default=None, help='set colour hex value')
+    parser.add_argument('--font_colour', default=None,
+                        help=f'set colour name from {[c for c in Fore.__dict__ if not c.startswith("_")]}')
     args = parser.parse_args()
     chosen_sources_count = sum(
         (
@@ -76,6 +89,8 @@ if __name__ == '__main__':
         'local_video_path': args.local_video_path,
         'local_image_path': args.local_image_path,
         'use_camera': args.use_camera,
+        'background_colour': args.background_colour,
+        'font_colour': args.font_colour,
     }
     try:
         main(**kwargs)

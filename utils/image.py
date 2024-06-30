@@ -1,5 +1,8 @@
+from typing import Optional
+
 import numpy as np
 from PIL import Image
+from colorama import Fore
 
 from config import MAX_HEIGHT, MAX_WIDTH
 from utils.common import write_to_terminal, clear_terminal, convert_array_to_text
@@ -33,12 +36,15 @@ def print_images_to_terminal(images: list[Image], ) -> None:
         print_img_to_terminal(img)
 
 
-def print_img_to_terminal(img: Image) -> None:
+def print_img_to_terminal(
+        img: Image,
+        font_colour: Optional[Fore] = Fore.LIGHTGREEN_EX,
+) -> None:
     resized_img = resize_image(img)
     img_array = convert_img_to_array(resized_img)
     text = convert_array_to_text(img_array)
 
-    write_to_terminal(text)
+    write_to_terminal(text, font_colour)
     input('Press Ctrl+C for exit')
 
 

@@ -6,6 +6,12 @@
 
 ## How to use?
 
+### For more info about arguments use
+
+```shell
+python main.py --help
+```
+
 ### Requirements
 1. [install ffmpeg ](https://phoenixnap.com/kb/install-ffmpeg-ubuntu) for audio extracting process 
 2. install xdotool for auto-change terminal font size
@@ -19,12 +25,18 @@ source activate_venv.sh
 ```
 
 ### show YouTube video
-`$ python main.py --youtube_link="https://www.youtube.com/watch?v=EOLafh8DPFM&t"`
+`$ python main.py --youtube_link="https://www.youtube.com/watch?v=EOLafh8DPFM&t" --background_colour=#34105e --font_colour=CYAN`
 
 ### show local video
-`$ python main.py --local_video_path=/home/rasul/Personal/py/zrx/media/video/cherimoya.mp4`
+
+> if background colour does not set, black(#000000) is choosen as default
+
+`$ python main.py --local_video_path=/home/rasul/Personal/py/zrx/media/video/cherimoya.mp4 --font_colour=CYAN`
 
 ### show local image
+
+> font_colour default is LIGHTGREEN_EX
+
 `$ python main.py --local_image_path=/home/rasul/Personal/py/zrx/media/img/car.jpg`
 
 ### show video from camera
